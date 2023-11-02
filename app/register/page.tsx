@@ -11,7 +11,7 @@ import { Link } from '@welcome-ui/link'
 import { PasswordInput } from '@welcome-ui/password-input'
 import { Alert } from '@welcome-ui/alert'
 
-import './styles.css'
+import '../styles.css'
 
 const theme = createTheme()
 
@@ -19,6 +19,7 @@ class Page extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      name: "",
       email: "",
       password: "",
       error: [],
@@ -26,7 +27,7 @@ class Page extends Component {
     };
   }
 
-  handleLogin = async (e: FormEvent<HTMLFormElement>) => {
+  handleRegistration = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const formData = new FormData(e.currentTarget);
@@ -36,7 +37,7 @@ class Page extends Component {
       object[key] = value;
     });
     const json = JSON.stringify(object);
-    const resp = await fetch('https://papyrus-api.kawanhosting.com/v1/users/login', {
+    const resp = await fetch('https://papyrus-api.kawanhosting.com/v1/users/register', {
       method: 'POST',
       headers: {
         "Content-Type": "application/json",
@@ -48,8 +49,7 @@ class Page extends Component {
     //error
     this.setState({error: data.body});
     if (resp.status === 200) {
-      localStorage.setItem("token", data.token)
-      window.location.replace("/books");
+      this.setState({success: true});
     }
   }
 
@@ -67,29 +67,35 @@ class Page extends Component {
           />
           <Box p="md">
             <Box display="flex" mb="xs" alignItems="center">
-              <Badge variant="primary">Login</Badge>
+              <Badge variant="primary">Mendaftar</Badge>
               <StarIcon ml="xs" size="sm" color="primary-500" />
             </Box>
             <Box>
               { this.state.error ? this.state.error.map((err, index) => { return (<Alert variant="error">{err.message}</Alert>) }): null}
             </Box>
-            <form onSubmit={this.handleLogin}>
+            <form onSubmit={this.handleRegistration}>
+            <Field label="Nama">
+              <InputText type="text" name="name"/>
+            </Field>
             <Field label="Email">
               <InputText type="email" name="email"/>
             </Field>
             <Field label="Password">
               <PasswordInput type="password" name="password"/>
             </Field>
+            <Box>
+              {this.state.success ? (<Alert variant="success"><span>Pendaftaran telah dinyatakan berhasil. Anda sekarang dapat <Link href='/'>log in.</Link></span></Alert>): null }
+            </Box>
             <Box className='loginbox'>
-              <Button variant="primary" w="100%" type="submit">Log in</Button>
+              <Button variant="primary" w="100%" type="submit">Mendaftar</Button>
             </Box>
             <Box className='loginbox' display="flex" justifyContent='center' alignItems='center'>
-              <Link href="/register">Atau Mendaftar.</Link>
+              <Link href="/">Atau Log in.</Link>
             </Box>
             </form>
           </Box>
         </Box>
-      </Box>    
+      </Box>
       </WuiProvider>
       </>
     )
