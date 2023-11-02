@@ -1,8 +1,8 @@
-// File: /data/data/com.termux/files/home/papyrus-nextjs13.4/app/page.tsx
-import * as entry from '../../../app/page.js'
+// File: /data/data/com.termux/files/home/papyrus-nextjs13.4/src/app/page.tsx
+import * as entry from '../../../src/app/page.js'
 import type { ResolvingMetadata } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
-type TEntry = typeof import('../../../app/page.js')
+type TEntry = typeof import('../../../src/app/page.js')
 
 // Check that the entry is a valid entry
 checkFields<Diff<{

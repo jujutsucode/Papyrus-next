@@ -1,41 +1,36 @@
 {
-  "name": "papyrus-nextjs13.4",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "papyrus-n",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "dev:https": "next-dev-https --https --qr --port 4430",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "next lint"
   },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "@types/react-dom": "^18.2.14",
+    "@types/node": "20.8.10",
+    "@types/react": "18.2.34",
+    "@types/react-dom": "18.2.14",
     "@types/styled-components": "^5.1.29",
     "@welcome-ui/alert": "^5.6.1",
     "@welcome-ui/badge": "^5.6.1",
     "@welcome-ui/box": "^5.0.0",
-    "@welcome-ui/button": "^5.5.0",
+    "@welcome-ui/button": "^5.6.1",
     "@welcome-ui/card": "^5.6.1",
-    "@welcome-ui/core": "^5.5.0",
+    "@welcome-ui/core": "^5.6.1",
+    "@welcome-ui/field": "^5.6.0",
     "@welcome-ui/icons": "^5.6.0",
     "@welcome-ui/input-text": "^5.6.1",
     "@welcome-ui/link": "^5.6.0",
     "@welcome-ui/password-input": "^5.6.1",
-    "@welcome-ui/text": "^5.6.1",
     "@xstyled/styled-components": "^3.8.0",
+    "eslint": "8.52.0",
+    "eslint-config-next": "14.0.1",
     "next": "13.4",
-    "next-dev-https": "^0.13.3",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "styled-components": "^5.3.11"
-  },
-  "devDependencies": {
-    "@types/node": "20.8.9",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "styled-components": "^5.3.11",
     "typescript": "5.2.2"
   }
 }
