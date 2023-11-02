@@ -15,7 +15,7 @@ import '../styles.css'
 
 const theme = createTheme()
 
-class Page extends Component {
+class Page extends Component<any, any> {
   constructor(props) {
     super(props);
     this.state = {
